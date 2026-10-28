@@ -12,6 +12,7 @@ class EmployeeManagerTest {
 
     @BeforeEach
     void setUp() {
+        // Create a real manager before every test.
         employeeManager = new EmployeeManager();
     }
 
@@ -34,17 +35,15 @@ class EmployeeManagerTest {
 
         employeeManager.addEmployee(employee);
 
-        assertEquals(
-            5,
-            employeeManager.getEmployees().getEmployeeList().size()
-        );
+        Employees employees = employeeManager.getEmployees();
+        assertEquals(5, employees.getEmployeeList().size());
 
-        assertEquals(
-            "105",
-            employeeManager.getEmployees()
-                .getEmployeeList()
-                .get(4)
-                .getEmployeeId()
-        );
+        Employee addedEmployee = employees.getEmployeeList().get(4);
+
+        assertEquals("105", addedEmployee.getEmployeeId());
+        assertEquals("Neha", addedEmployee.getFirstName());
+        assertEquals("Singh", addedEmployee.getLastName());
+        assertEquals("neha@example.com", addedEmployee.getEmail());
+        assertEquals("Backend Developer", addedEmployee.getTitle());
     }
 }
