@@ -10,13 +10,11 @@ public class Employee {
     private String email;
     private String title;
 
-    // Required for flexibility and future JSON input
     public Employee() {
+        // Required for JSON deserialization
     }
 
-    // Constructor to initialize an employee
-    public Employee(String employeeId, String firstName,
-                    String lastName, String email, String title) {
+    public Employee(String employeeId, String firstName,String lastName, String email, String title) {
         this.employeeId = employeeId;
         this.firstName = firstName;
         this.lastName = lastName;
